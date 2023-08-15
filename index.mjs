@@ -2,24 +2,23 @@ import inquirer from "inquirer";
 import fs from "fs/promises";
 
 
-let {title, description, tableofcontents, } = await inquirer   
-    .prompt ([
+let { title, description, table_of_contents, installation, usage, license, contributions, tests, questions } = await inquirer
+    .prompt([
         {
             type: 'input',
             name: 'title',
             message: 'Please create a title for your ReadMe'
 
         },
-
         {
             type: 'input',
             name: 'description',
-            message: 'Please provide a description'
+            message: 'Please provide a description of your project'
 
         },
         {
             type: 'input',
-            name: 'tableOfContents',
+            name: 'table_of_contents',
             message: 'Please create a table of contents'
 
         },
@@ -36,18 +35,14 @@ let {title, description, tableofcontents, } = await inquirer
 
         },
         {
-            type: 'input',
+            type: 'list',
             name: 'license',
             message: 'Please select a license',
-            choices: '',
-
-            filter(val) {
-               return val.toLowerCase();
-            },
+            choices: ['Apache', 'MIT', 'Zlib'],
         },
         {
             type: 'input',
-            name: 'contributing',
+            name: 'contributions',
             message: 'Please list all contributors'
 
         },
@@ -64,31 +59,52 @@ let {title, description, tableofcontents, } = await inquirer
 
         },
 
-
-
     ])
 
 
+let readMeText =
 
-    let readMeText = ` # Project Description
-    ${description}
+  `    
+# Project Title
+${title}
 
-    ## A second-level heading
+## Description
+${description}
 
-    ${generateLicense(size)}
-
-    ### A third-level heading 
+## Table of contents
+${table_of_contents}
     
-    `
+## Installation
+${installation}
 
-    fs.writeFile("ReadMe.md", readMeText)
+## Usage
+${usage}
 
-    function generateLicense(license) {
+## Contributors
+${contributions}
 
-        if (license === ) {
-            return //add url for license
-        }
+## Licenses
+${generateLicense(license)}
 
-        return ''
+## Tests
+${tests}
 
+## Questions
+${questions}
+ 
+ `
+
+fs.writeFile("ReadMe.md", readMeText)
+
+function generateLicense(license) {
+    
+    if (license === 'Apache') {
+        return "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)"
+    } else if (license === 'MIT') {
+        return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
+    } else if (license === 'Zlib') {
+        return "[![License: Zlib](https://img.shields.io/badge/License-Zlib-lightgrey.svg)](https://opensource.org/licenses/Zlib)"
     }
+
+}
+
