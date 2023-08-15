@@ -2,24 +2,18 @@ import inquirer from "inquirer";
 import fs from "fs/promises";
 
 
-let { title, description, table_of_contents, installation, usage, license, contributions, tests, questions } = await inquirer
+let { title, description, table_of_contents, installation, usage, license, contributions, tests, git_name, email,} = await inquirer
     .prompt([
         {
             type: 'input',
             name: 'title',
-            message: 'Please create a title for your ReadMe'
+            message: 'Please create a title for your project'
 
         },
         {
             type: 'input',
             name: 'description',
             message: 'Please provide a description of your project'
-
-        },
-        {
-            type: 'input',
-            name: 'table_of_contents',
-            message: 'Please create a table of contents'
 
         },
         {
@@ -54,8 +48,14 @@ let { title, description, table_of_contents, installation, usage, license, contr
         },
         {
             type: 'input',
-            name: 'questions',
-            message: 'Please add any frequently asked questions that may be asked about this project'
+            name: 'git_name',
+            message: 'Please provide your Github username'
+
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Please enter your e-mail address'
 
         },
 
@@ -64,15 +64,22 @@ let { title, description, table_of_contents, installation, usage, license, contr
 
 let readMeText =
 
-  `    
-# Project Title
-${title}
+`    
+${generateLicense(license)}
+
+# ${title}
 
 ## Description
 ${description}
 
-## Table of contents
-${table_of_contents}
+## Table of Contents
+- [Description](#description)
+- [Insallation](#installation)
+- [Usage](#usage)
+- [Contributors](#contributors)
+- [Lincenses](#licenses)
+- [Tests](#tests)
+- [Questions](#questions)
     
 ## Installation
 ${installation}
@@ -84,14 +91,17 @@ ${usage}
 ${contributions}
 
 ## Licenses
-${generateLicense(license)}
+This project is covered under the ${license} license.
 
 ## Tests
 ${tests}
 
 ## Questions
-${questions}
- 
+If you have any questions, please visit my repository:\n
+${gitProfile(git_name)}\n
+ You can also shoot me an e-mail if you would like to contact me directly:\n
+${emailInput(email)}
+
  `
 
 fs.writeFile("ReadMe.md", readMeText)
@@ -107,4 +117,14 @@ function generateLicense(license) {
     }
 
 }
+
+function gitProfile(git_name) {
+    return `[Github Repo](https://github.com/${git_name})`
+}
+
+function emailInput(email) {
+    return `[E-mail](mailto:${email})`
+}
+
+
 
