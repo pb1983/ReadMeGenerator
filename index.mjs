@@ -2,7 +2,7 @@ import inquirer from "inquirer";
 import fs from "fs/promises";
 
 
-let { title, description, table_of_contents, installation, usage, license, contributions, tests, git_name, email,} = await inquirer
+let { title, description, installation, usage, license, contributions, tests, git_name, email,} = await inquirer
     .prompt([
         {
             type: 'input',
@@ -97,9 +97,9 @@ This project is covered under the ${license} license.
 ${tests}
 
 ## Questions
-If you have any questions, please visit my repository:\n
+Please visit my repository:\n
 ${gitProfile(git_name)}\n
- You can also shoot me an e-mail if you would like to contact me directly:\n
+You can also e-mail me directly if you would have any questions:\n
 ${emailInput(email)}
 
  `
