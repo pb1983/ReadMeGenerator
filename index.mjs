@@ -76,7 +76,7 @@ ${description}
 - [Description](#description)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributors](#contributors)
+- [Contributions](#contributions)
 - [Lincenses](#licenses)
 - [Tests](#tests)
 - [Questions](#questions)
