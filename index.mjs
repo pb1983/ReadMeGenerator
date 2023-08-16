@@ -25,7 +25,7 @@ let { title, description, installation, usage, license, contributions, tests, gi
         {
             type: 'input',
             name: 'usage',
-            message: 'Please descript the intended usage for this project'
+            message: 'Please describe the intended usage for this project'
 
         },
         {
