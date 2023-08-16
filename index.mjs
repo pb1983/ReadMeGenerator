@@ -74,7 +74,7 @@ ${description}
 
 ## Table of Contents
 - [Description](#description)
-- [Insallation](#installation)
+- [Installation](#installation)
 - [Usage](#usage)
 - [Contributors](#contributors)
 - [Lincenses](#licenses)
@@ -87,7 +87,7 @@ ${installation}
 ## Usage
 ${usage}
 
-## Contributors
+## Contributions
 ${contributions}
 
 ## Licenses
