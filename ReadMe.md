@@ -39,4 +39,6 @@ You can also e-mail me directly if you would have any questions:
 
 [E-mail](mailto:phil.bryer@gmail.com)
 
+[Walkthrough Video](https://drive.google.com/file/d/1hb4RXZNVhVY7PescZb_HkRlQGb0GPzdh/view)
+
  
